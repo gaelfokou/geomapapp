@@ -1,0 +1,28 @@
+<%= form_for @place do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :visited_by %>
+    <%= f.text_field :visited_by, class: "form-control" %>
+  </fieldset>
+
+  <%= f.hidden_field :raw_address %>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+
+  <% if @place.new_record? %>
+    <%= f.submit 'Add', class: 'btn btn-primary' %>
+  <% else %>
+    <%= f.submit 'Edit', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
+<div class="card">
+  <div class="card-block">
+    <h5>Select Location</h5>
+    <div id="map"></div>
+  </div>
+</div>

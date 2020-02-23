@@ -1,0 +1,5 @@
+<% if place.new_record? %>
+    Place <%= link_to place.title, '#', remote: true %> visited by <strong><%= place.visited_by %></strong>
+<% else %>
+    Place <%= link_to place.title, place_url(place) %> visited by <strong><%= place.visited_by %></strong>
+<% end %>

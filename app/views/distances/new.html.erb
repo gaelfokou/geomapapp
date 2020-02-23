@@ -1,0 +1,30 @@
+<header><h4 class="display-5">Measure Distance</h4></header>
+
+<%= form_tag distances_path do %>
+  <fieldset class="form-group">
+  <%= label_tag 'from', 'From' %>
+  <%= select_tag 'from', options_from_collection_for_select(@places, :id, :title, @from.id), class: "form-control" %>
+</fieldset>
+
+  <fieldset class="form-group">
+  <%= label_tag 'to', 'To' %>
+  <%= select_tag 'to', options_from_collection_for_select(@places, :id, :title, @to.id), class: "form-control" %>
+</fieldset>
+
+  <%= submit_tag 'Go', class: 'btn btn-primary' %>
+<% end %>
+
+<div class="card">
+  <div class="card-block">
+    <div id="map"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers(<%=raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+    });
+</script>

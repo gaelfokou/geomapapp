@@ -1,0 +1,31 @@
+#map {
+  height: 500px;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+header {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.alert {
+  margin-top: 24px;
+}
+.alert-notice {
+  background-color: #f2dede;
+  border-color: #ebcccc;
+  color: #a94442;
+}
+.alert-notice hr {
+  border-top-color: #e4b9b9;
+}
+.alert-notice .alert-link {
+  color: #843534;
+}
